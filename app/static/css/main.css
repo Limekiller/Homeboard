@@ -17,3 +17,8 @@ header:hover .header {
 .header h2 {
    padding:20px;  
 }
+.g-signin {
+    padding:20px;
+    background-color:grey;
+    text-align:center;
+}
