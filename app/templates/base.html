@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Homeboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script type=text/javascript src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class='header'>
+                <h2>{{ user.username }} | Edit </h2>
+            </div>
+        </header>
+    </body>
+</html>

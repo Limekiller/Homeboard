@@ -1,0 +1,19 @@
+body {
+    font-family: Helvetica;
+    margin: 0;
+}
+header {
+    height:100px;
+}
+header:hover .header {
+    margin-top:-20px;
+}
+.header {
+    margin-top:-90px;
+    background-color:blue;
+    color:white;
+    transition:all 0.2s ease;
+}
+.header h2 {
+   padding:20px;  
+}
