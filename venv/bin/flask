@@ -1,4 +1,4 @@
-#!/home/bdyoder/homeboard/venv/bin/python3
+#!/var/www/homeboard.bryceyoder.com/public_html/venv/bin/python3
 
 # -*- coding: utf-8 -*-
 import re
