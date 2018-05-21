@@ -1,24 +1,104 @@
 body {
     font-family: Helvetica;
     margin: 0;
+    overflow:hidden;
+    height:100vh;
 }
 header {
-    height:100px;
+    height:1000px;
 }
 header:hover .header {
-    margin-top:-20px;
+    margin-top:975px;
 }
-.header {
-    margin-top:-90px;
-    background-color:blue;
+a {
+    text-decoration:none;
+}
+
+/* HOME PAGE */
+.home-body {
+    background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/UD7CEz6/blurry-lights-background-placeholder-animation_qktgndhw__F0000.png);
+}
+.home-text {
+    text-align:center;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
     color:white;
-    transition:all 0.2s ease;
-}
-.header h2 {
-   padding:20px;  
 }
 .g-signin {
     padding:20px;
     background-color:grey;
     text-align:center;
+}
+
+
+/* BOARD PAGE */
+#base-body {
+    background-color:#202020;
+}
+.header {
+    margin-top:900px;
+    background-color:blue;
+    color:white;
+    transition:all 0.2s ease;
+    padding:20px;
+    position:absolute;
+    width:100%;
+}
+.header h2 {
+    display:inline;
+}
+.header a {
+    color:white;
+}
+#header2 {
+    background-color:red;
+    margin-top:-985px;
+    z-index:99;
+    position:relative;
+    height:96vh;
+}
+
+.acc-logout {
+    position:absolute;
+    left:20px;
+    margin-top:0px;
+    opacity:0;
+    transition:opacity 0.4s ease;
+}
+.acc-logout-hover {
+    opacity:1;
+}
+.acc-name {
+    opacity:1;
+    transition:opacity 0.4s ease;
+}
+.acc-name-hover {
+    opacity:0;
+}
+
+#edit-bar {
+   position:absolute;
+   bottom:0;
+   height:50px;
+}
+#widget-area {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+#widget-store {
+    display:flex;
+}
+.ws-widget {
+    width:200px;
+    height:200px;
+    background-color:darkred;
+}
+.widget {
+    width:225px;
+    height:225px;
+    margin:25px;
+    background-color:darkgrey;
+    color:white;
 }

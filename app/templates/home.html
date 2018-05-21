@@ -3,10 +3,11 @@
         <title>Homeboard</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
-    <body>
-        <div class="home_text">
+    <body class='home-body'>
+        <div class="home-text">
             <h1>Homeboard</h1>
-            <p>Homeboard is an open-source, customizable, Google-integrated dashboard for you home.</p>
-            <a class="g-signin" href="{{ url_for('google.login') }}">Sign In</a>        
+            <p style="margin-bottom:30px;">Homeboard is an open-source, customizable, Google-integrated dashboard for you home.</p><br>
+            <a class="g-signin" href="{{ url_for('google.login') }}">Sign In</a>
+        </div>
     </body>
 </html>
