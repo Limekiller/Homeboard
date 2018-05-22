@@ -85,7 +85,6 @@ a {
 #widget-area {
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
 }
 #widget-store {
     display:flex;
@@ -101,4 +100,10 @@ a {
     margin:25px;
     background-color:darkgrey;
     color:white;
+    transition:all 0.2s ease;
+}
+.ui-resizable-helper {
+    background-color:rgba(49, 67, 203, 0.37);
+    transition:all 0.2s ease;
+    z-index:0;
 }

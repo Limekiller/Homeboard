@@ -24,8 +24,14 @@ jQuery(document).ready(function () {
     });
     $('.ws-widget').on('click', function() {
         var widget_title = $(this).html();
-        $('#widget-area').append("<div id='widg_"+widg_id+"' class='widget'></div>");
+        $('#widget-area').append("<div class='widget'><div id='widg_"+widg_id+"' class='widget-i'></div></div>");
         $("#widg_"+widg_id).load("https://homeboard.bryceyoder.com/widget/"+widget_title)
+        $('.widget').resizable({
+            helper: "ui-resizable-helper",
+            grid: 50});
+        $('.widget').draggable({
+            grid: [50, 50],
+            });
         widg_id++;
     });
 });
