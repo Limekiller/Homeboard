@@ -5,10 +5,10 @@ body {
     height:100vh;
 }
 header {
-    height:1000px;
+    height:100px;
 }
 header:hover .header {
-    margin-top:975px;
+    margin-top:0px;
 }
 a {
     text-decoration:none;
@@ -37,13 +37,14 @@ a {
     background-color:#202020;
 }
 .header {
-    margin-top:900px;
-    background-color:blue;
+    margin-top:-90px;
+    background-color:rgba(1, 1, 1, 0.47);
     color:white;
     transition:all 0.2s ease;
     padding:20px;
     position:absolute;
     width:100%;
+    z-index:1;
 }
 .header h2 {
     display:inline;
@@ -52,19 +53,26 @@ a {
     color:white;
 }
 #header2 {
-    background-color:red;
-    margin-top:-985px;
+    background-color:rgba(0, 0, 0, 0.93);
+    margin-top:-105vh;
     z-index:99;
-    position:relative;
+    position:absolute;
     height:96vh;
+}
+#acc-edit {
+    transition:all 0.4s ease;
+    z-index:2;
+    position:relative;
+    cursor:pointer;
 }
 
 .acc-logout {
     position:absolute;
     left:20px;
-    margin-top:0px;
+    margin-top:4px;
     opacity:0;
     transition:opacity 0.4s ease;
+    z-index:0;
 }
 .acc-logout-hover {
     opacity:1;
@@ -72,6 +80,13 @@ a {
 .acc-name {
     opacity:1;
     transition:opacity 0.4s ease;
+    z-index:1;
+    position:relative;
+}
+.acc-name img {
+    width:35px;
+    margin-bottom:-8px;
+    border-radius:20px;
 }
 .acc-name-hover {
     opacity:0;
@@ -92,18 +107,40 @@ a {
 .ws-widget {
     width:200px;
     height:200px;
-    background-color:darkred;
+    margin:50px;
+    background-color:rgb(45, 45, 45);
+    text-align:center;
+    transition:background-color 0.4s ease;
+}
+.ws-widget:active {
+    background-color:black;;
 }
 .widget {
     width:225px;
     height:225px;
     margin:25px;
-    background-color:darkgrey;
+    position:relative;
+    background-color:#4a4a4a;
     color:white;
-    transition:all 0.2s ease;
+    transition:all 0.1s ease;
+    z-index:0;
+}
+.widget-i {
+    width:225px;
+    height:225px;
+    position:relative;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
 }
 .ui-resizable-helper {
     background-color:rgba(49, 67, 203, 0.37);
-    transition:all 0.2s ease;
+    transition:all 0.1s ease;
     z-index:0;
+}
+
+@font-face {
+    font-family: 'Axis';
+    src: url('../fonts/Axis.otf');
 }
