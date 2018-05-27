@@ -24,7 +24,7 @@ function updateClock()
     var currentHours = currentTime.getHours ( );
     var currentMinutes = currentTime.getMinutes ( );
     var currentSeconds = currentTime.getSeconds ( );
-    var currentDay = currentTime.getDay()-1;
+    var currentDay = currentTime.getDay();
     var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
 
     currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;

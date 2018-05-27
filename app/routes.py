@@ -14,7 +14,7 @@ def index():
     resp = google.get("/oauth2/v2/userinfo")
     assert resp.ok, resp.text
 
-    widgets = os.listdir('app/widgets')
+    widgets = os.listdir('./app/widgets')
     return render_template('base.html', picture=resp.json()["picture"], widgets=widgets)
 
 @app.route('/logout')

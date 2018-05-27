@@ -1,5 +1,4 @@
 widg_id = 1;
-var scale_factor;
 
 jQuery(document).ready(function () {
 
@@ -63,28 +62,11 @@ jQuery(document).ready(function () {
 
             // Enable resizability
             $('.widget').resizable({
+                stop(event, ui) {
+                    ui.element.css('height', 50.0*Math.round(parseInt($('.ui-resizable-helper').css('height'))/50.0));
+                    ui.element.css('width', 50.0*Math.round(parseInt($('.ui-resizable-helper').css('width'))/50.0));
+                },
                 helper: "ui-resizable-helper",
-                resize(event, ui) {
-
-                    // Allow automatic scaling within widget
-                    var $el = ui.element.children('.widget-i');
-                    var elHeight = $el.outerHeight();
-                    var elWidth = $el.outerWidth();
-                    var scale;
-                    scale = Math.min(
-                        ui.size.width / elWidth,
-                        ui.size.height / elHeight
-                    );
-                    scale_factor = scale;
-                },
-
-                // Don't apply scaling until mouse released
-                stop(event, ui){
-                    var $el = ui.element.children('.widget-i');
-                    $el.css({
-                        transform: "translate(-50%, -50%) "+ "scale("+ scale_factor + ")"
-                    });
-                },
                 grid: 100});
 
             // Enable Draggability
