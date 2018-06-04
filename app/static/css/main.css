@@ -138,6 +138,12 @@ a {
     transform: translate(-50%, -50%);
     transform-origin: center center;
 }
+.w_base {
+    width:-moz-fit-content;
+    width:fit-content;
+    margin: 0 auto;
+    transition: transform 0.1s ease;
+}
 .ui-resizable-helper {
     background-color:rgba(49, 67, 203, 0.37);
     transition:all 0.1s ease;

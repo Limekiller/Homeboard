@@ -2,8 +2,8 @@ function init(widg_id){
     updateClock();
     setInterval(function() { updateClock(); }, 1000);
     var element = document.getElementById('clock');
-    new ResizeSensor(element, function() {
-        if (element.clientWidth < 500) {
+    new ResizeSensor(element.parentElement, function() {
+        if (element.parentElement.clientWidth < 500) {
             $("#clock2").css('display', '');
             $("#clock1").css('display', '');
         }
