@@ -1,6 +1,11 @@
 <script src='widget/calendar/base.js'></script>
+<script src="https://apis.google.com/js/platform.js"></script>
 <link rel='stylesheet' type='text/css' href='widget/calendar/base.css'>
-<div id='url-entry' class='w_base'>
-    <label>Calendar URL</label><br>
-    <input type='text' id='calendarURL'>
+<div id=calendar class=w_base>
+    <div id=cal_select>
+        <h1>Select Calendars:</h1>
+        <ul id=cal_list>
+        </ul>
+        <button>OK</button>
+    </div>
 </div>

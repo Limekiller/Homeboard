@@ -8,12 +8,13 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/ResizeSensor.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/ElementQueries.js') }}"></script>
+        <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
     </head>
     <body id="base-body">
         <header>
             <div id='header1' class='header'>
                 <h2 class='acc-logout'>Logout</h2>
-                <a class='acc-name' href="/logout"><img src="{{ picture }}" /></a>
+                <a class='acc-name' href="/logout"><img alt="{{ user_id }}" src="{{ picture }}" /></a>
                 <h2 id='acc-edit'>| Edit </h2>
             </div>
             <div id='header2' class='header'>

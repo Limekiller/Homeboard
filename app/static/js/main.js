@@ -89,19 +89,18 @@ jQuery(document).ready(function () {
 });
 
 function resize(element) {
-    console.log($(element).width() / 250, $(element).height() / 250);
     var new_width = $(element).width();
     var new_height = $(element).height();
 
     if (new_width / 250 > new_height / 250) {
         while (new_width / 250 * $(element).children('.w_base').height() > new_height) {
-            new_width = new_width - 20;
+            new_width = new_width - 50;
         }
         var scale_factor = new_width / 250;
 
     } else if (new_height / 250 > new_width / 250) {
         while (new_height / 250 * $(element).children('.w_base').width() > new_width) {
-            new_height = new_height - 10;
+            new_height = new_height - 50;
         }
         var scale_factor = new_height / 250;
 

@@ -6,7 +6,7 @@ app.secret_key = "kachow"
 blueprint = make_google_blueprint(
         client_id="20479049328-ctm4rhe9051n1ht0h9dhn19rgptqp4i0.apps.googleusercontent.com",
         client_secret="1gjXPfPdjTTTC5NMaTTViEhD",
-        scope=["profile", "email"]
+        scope=["profile", "email", "https://www.googleapis.com/auth/calendar"]
     )
 app.register_blueprint(blueprint, url_prefix="/login")
 

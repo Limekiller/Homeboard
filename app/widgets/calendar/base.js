@@ -5,4 +5,19 @@ function init(widg_id){
             $('#url-entry').html($('#calendarURL').val());
         }
     });
+
+    // Get user's calendar list
+    $.getJSON($SCRIPT_ROOT + '/calendar', {
+        c: 'calendarList?',
+        cid: 'me',
+        base: '/calendar/v3/users/'
+    }, function(data) {
+        var resp = JSON.parse(data);
+        $.each(resp.items, function(i, obj) {
+            $("#cal_list").append("<li>"+obj.summary+"</li>");
+        });
+    });
+
+
 }
+
