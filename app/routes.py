@@ -34,11 +34,11 @@ def add_numbers():
 
     resp = google.get("/oauth2/v2/userinfo")
     if not cid:
-        cid = quote_plus(resp.json()["email"])
+        cid = resp.json()["email"]
     if not base:
         base = "/calendar/v3/calendars/"
 
-    cal = base+cid
+    cal = base+quote_plus(cid)
     cal = google.get(cal+'/'+c)
     assert cal.ok, cal.text
     return jsonify(cal.text);

@@ -1,5 +1,4 @@
 #calendar {
-    font-weight:bold;
     text-align:center;
     position:relative;
     top:50%;
@@ -18,7 +17,52 @@ h1 {
     line-height:15px;
 }
 
+#cal_list li {
+    transition:all 0.4s ease;
+    text-decoration-color:rgba(0,0,0,0);
+}
+
 #cal_list li:hover {
     color:grey; 
     cursor:pointer;
+}
+
+#cal_results {
+    display:flex;
+    flex-wrap:wrap;
+    height:100%;
+}
+
+.day_header {
+    font-weight:900;
+}
+
+.day_header, .cal_day {
+    flex: 0 1 12.5%;
+    margin:5px;
+}
+
+.cal_day {
+    background-color:#757575;
+    height:18%;
+}
+
+.cal_day h6 {
+    font-weight:bold;
+    margin:1px;
+    text-align: left;
+    padding:3px;
+}
+
+.cal_day p {
+    font-size:10px;
+    text-align:left;
+    margin: 0;
+    margin-left:10px;
+}
+
+#cal_header{
+    margin-bottom:30px;
+    font-size:40px;
+    font-weight:900;
 }
