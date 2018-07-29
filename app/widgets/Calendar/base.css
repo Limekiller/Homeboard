@@ -27,12 +27,24 @@ h1 {
     cursor:pointer;
 }
 
-#cal_results {
+#cal_results_month {
     display:flex;
     flex-wrap:wrap;
     height:100%;
-    opacity:0;
     transition:opacity 0.4s ease;
+    opacity:0;
+}
+
+#cal_results_week {
+    width:125%;
+    transform:translateX(-5%);
+    height:100%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#cal_results_day {
+    height:90%;
 }
 
 .day_header {
@@ -49,6 +61,11 @@ h1 {
     height:18%;
 }
 
+#cal_results_week .cal_day, #cal_results_day .cal_day {
+    height:90%;
+    /*width:12.5%;*/
+}
+
 .cal_day h6 {
     font-weight:bold;
     margin:1px;
@@ -56,11 +73,21 @@ h1 {
     padding:3px;
 }
 
+#cal_results_week .cal_day h6 {
+    font-size:20px;
+    padding:10px;
+}
+
 .cal_day p {
     font-size:10px;
     text-align:left;
     margin: 0;
     margin-left:10px;
+    display:table;
+}
+
+#cal_results_week .cal_day p {
+    font-size:20px; 
 }
 
 #cal_header{
@@ -69,6 +96,11 @@ h1 {
     font-weight:900;
 }
 .used_cal_list{
-    display:inline;
-    font-size:8px;
+    display:flex;
+    font-size:10px;
+    flex-wrap:wrap;
+}
+
+.used_cal_list p {
+    margin:1px;
 }

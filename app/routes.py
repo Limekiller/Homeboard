@@ -1,10 +1,11 @@
 from app import app
 from flask import make_response, send_file, render_template, Flask, redirect, url_for, session, request, jsonify
 from flask_dance.contrib.google import make_google_blueprint, google
-import os
 from datetime import datetime, timedelta, timezone
 from apiclient.discovery import build
 from urllib.parse import quote_plus
+import os, requests
+
 
 @app.route('/')
 @app.route('/index')
@@ -15,12 +16,9 @@ def index():
     resp = google.get("/oauth2/v2/userinfo")
     assert resp.ok, resp.text
 
-#    cal = google.get("/calendar/v3/calendars/"+resp.json()["email"]+"/events?timeMin="+lower_cal_bound+"&")
-#    assert cal.ok, cal.text
-#    print(cal.json())
-
     widgets = os.listdir('./app/widgets')
     return render_template('base.html', picture=resp.json()["picture"], widgets=widgets)
+
 
 @app.route('/calendar')
 def add_numbers():
@@ -44,14 +42,31 @@ def add_numbers():
     return jsonify(cal.text);
 
 
+@app.route('/drive')
+def google_drive_api():
+
+    c = request.args.get('c', None, type=str)
+    base = request.args.get('base', None, type=str)
+
+    resp = google.get("/oauth2/v2/userinfo")
+    if not base:
+        base = "/drive/v3/"
+
+    drive = google.get(base+c)
+    assert drive.ok, drive.text
+    return jsonify(drive.text);
+
+
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
 
+
 @app.route('/widget/<widget_name>/')
 def widget(widget_name):
     return send_file('widgets/'+widget_name+'/base.html')
+
 
 @app.route('/widget/<widget_name>/<file_name>')
 def widget_script(widget_name, file_name):

@@ -93,19 +93,21 @@ function resize(element) {
     var new_height = $(element).height();
 
     if (new_width / 250 > new_height / 250) {
-        while (new_width / 250 * $(element).children('.w_base').height() > new_height) {
+        while (new_width / 250 * $(element).children('.w_base').height() > new_height - 50) {
             new_width = new_width - 25;
         }
         var scale_factor = new_width / 250;
 
     } else if (new_height / 250 > new_width / 250) {
-        while (new_height / 250 * $(element).children('.w_base').width() > new_width) {
+        while (new_height / 250 * $(element).children('.w_base').width() > new_width - 50) {
             new_height = new_height - 25;
         }
         var scale_factor = new_height / 250;
 
     } else {
-        console.log('ah');
+        while (new_height / 250 * $(element).children('.w_base').width() > new_width - 100) {
+            new_height = new_height - 25;
+        }
         var scale_factor = new_height / 250;
     }
 

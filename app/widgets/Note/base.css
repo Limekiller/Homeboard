@@ -1,0 +1,28 @@
+#note {
+    font-weight:bold;
+    text-align:center;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#note p span{
+    color: white !important;
+    font-size:20px !important;
+}
+
+#drive_search {
+    margin-bottom:15px;
+}
+
+.drive_result {
+    font-weight:normal;
+    font-size:15px;
+    margin:3px;
+    transition: all 0.4s ease;
+}
+
+.drive_result:hover {
+    text-decoration:underline;
+    text-decoration-color:black;
+}
