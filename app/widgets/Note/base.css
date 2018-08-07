@@ -7,8 +7,9 @@
 }
 
 #note p span{
-    color: white;
+    color: white !important;
     font-size:10px !important;
+    font-family:Kanit !important;
 }
 
 #drive_search {

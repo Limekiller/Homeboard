@@ -71,3 +71,30 @@ def widget(widget_name):
 @app.route('/widget/<widget_name>/<file_name>')
 def widget_script(widget_name, file_name):
     return send_file('widgets/'+widget_name+'/'+file_name)
+
+@app.route('/load')
+def load_data():
+    resp = google.get("/oauth2/v2/userinfo")
+    assert resp.ok, resp.text
+
+    user_id = resp.json()["id"]
+    if os.path.exists("./app/user_data/"+user_id):
+        data = open("./app/user_data/"+user_id, 'r').read()
+        return data
+    else:
+        return "null"
+
+
+@app.route('/save', methods=['GET', 'POST'])
+def save_data():
+    data = request.form.get('page_data')
+    resp = google.get("/oauth2/v2/userinfo")
+    assert resp.ok, resp.text
+
+    user_id = resp.json()["id"]
+    f = open("./app/user_data/"+user_id, 'w')
+    f.write(data);
+    return "saved"
+
+
+

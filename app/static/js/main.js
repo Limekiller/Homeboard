@@ -1,17 +1,32 @@
 widg_id = 1;
 
 jQuery(document).ready(function () {
-    enablePage();
+    $.ajax({
+        url: '/load',
+        success: function(data) {
+            if (data != "null") {
+                $("body").html(data);
+            }
+        }
+    });
+    $("body").css("opacity", 1);
+    window.setTimeout(function(){enablePage(true);},1000);
 });
 
-function enablePage() {
+function enablePage(initial) {
     var savedPageContent;
     var bgColor;
 
     // Enable all widgets if this function is being called due to the discard button
     $(".widget").each(function(i, obj) {
         initUI($(this));
+        if (initial) {
+            old_widg_id = $(this).children(".widget-i").attr("id");
+            $(this).children(".widget-i").attr("id", "widg_"+i);
+            $("[name='"+old_widg_id+"']").attr('name', 'widg_'+i);
+        }
         init('widg_'+i);
+        widg_id++;
         $(this).draggable('disable');
         $(this).resizable('disable');
         $(this).children('.ui-resizable-handle').each(function(i,obj){
@@ -58,6 +73,12 @@ function enablePage() {
         $('.widget').draggable('disable');
         $('.widget').resizable('disable');
         $('.widget-i').css('border', 'none');
+        var pagedata = $("body").html();
+        $.post(
+                '/save',
+                {page_data: pagedata }
+              ).done( function(data) {
+        });
     });
 
     // Discard Changes
@@ -72,9 +93,11 @@ function enablePage() {
         $('#header1').css('margin-top', '');
         $('.widget').draggable('disable');
         $("body").html(savedPageContent);
-        enablePage();
-        $("body").css("transition", "opacity 0.1s ease");
-        window.setTimeout(function(){ $("body").css("opacity", 1);}, 25);
+        enablePage(false);
+        $("body").css("transition", "opacity 0.1s ease, background-color 0.4s ease");
+        window.setTimeout(function(){
+            $("body").css("opacity", 1);
+        }, 25);
     });
 
 
@@ -121,7 +144,7 @@ function enablePage() {
     function colorChange(swatchid) {
         $("#"+swatchid).children().each(function(index) {
             if (index == 3) {
-                $(".color4").css("color", $(this).css("background-color"));
+                $(".color4").css("color", $(this).css("background-color")+" !important");
             } else {
                 $(".color"+(index+1)).css("background-color", $(this).css("background-color"));
             }
@@ -146,28 +169,13 @@ function enablePage() {
             $(this).attr('name', 'widg_'+temp_widg_id);
 
             // Add to page, load code, and fire init function that it should contain
-            $('#widget-area').append("<div class='widget color4'><div id='widg_"+widg_id+"' class='widget-i color2'></div></div>");
+            $('#widget-area').append("<div class='widget color4' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color2'></div></div>");
             $('#widg_'+widg_id).load("https://homeboard.bryceyoder.com/widget/"+widget_title, function () {
                 init('widg_'+temp_widg_id);
             });
 
             // Enable resizability
             initUI($('.widget'));
-//            $('.widget').resizable({
-//                stop(event, ui) {
-//                    ui.element.css('height', 50.0*Math.round(parseInt($('.ui-resizable-helper').css('height'))/50.0));
-//                    ui.element.css('width', 50.0*Math.round(parseInt($('.ui-resizable-helper').css('width'))/50.0));
-//                    setTimeout(function() {
-//                        resize(ui.element.children('.widget-i'));
-//                    }, 100);
-//                },
-//                helper: "ui-resizable-helper",
-//                grid: 100});
-//
-//            // Enable Draggability
-//            $('.widget').draggable({
-//                grid: [100, 100],
-//            });
             widg_id++;
         }
     });

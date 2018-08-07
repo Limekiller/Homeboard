@@ -4,6 +4,7 @@
     position:relative;
     top:50%;
     transform:translateY(-50%);
+    font-family:Helvetica;
 }
 #clock1, #clock2 {
     font-weight:bolder;
