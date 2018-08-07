@@ -1,8 +1,17 @@
+* {
+    transition:background-color 0.4s ease;
+}
+
 body {
-    font-family: Helvetica;
+    user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    font-family: Kanit;
     margin: 0;
     overflow:hidden;
     height:100vh;
+    transition:opacity 0.4s ease;
 }
 header {
     height:100px;
@@ -52,9 +61,12 @@ a {
     position:absolute;
     width:100%;
     z-index:1;
+    letter-spacing:3px;
 }
 .header h2 {
     display:inline;
+    margin-right:20px;
+    cursor:pointer;
 }
 .header a {
     color:white;
@@ -114,9 +126,18 @@ a {
     background-color:rgb(45, 45, 45);
     text-align:center;
     transition:background-color 0.4s ease;
+    cursor:pointer;
 }
 .ws-widget:active {
     background-color:black;;
+}
+.ws-widget img {
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    max-width:75%;
+    filter: invert(0.5);
+    transition:filter 0.4s ease;
 }
 #widget-area {
     width:100%;
@@ -141,6 +162,7 @@ a {
     top:50%;
     transform: translate(-50%, -50%);
     transform-origin: center center;
+    border: 1px solid;
 }
 .w_base {
     width:-moz-fit-content;
@@ -153,8 +175,37 @@ a {
     transition:all 0.1s ease;
     z-index:0;
 }
+#styles-area {
+    height:100px;
+    width:100%;
+    background-color:black;
+    position:absolute;
+    display:flex;
+    padding:20px;
+    bottom:-150px;
+    transition:bottom 0.1s ease;
+}
+.style {
+    width:100px;
+    height:100px;
+    background-color:white;
+    margin-right:50px;
+    display:flex;
+    flex-wrap:wrap;
+}
+#styles_close {
+    width:25px;
+    height:25px;
+    position:absolute;
+    color:white;
+    right:50px;
+}
+.style-descriptor {
+    width:50px;
+    height:50px;
+}
 
 @font-face {
-    font-family: 'Axis';
-    src: url('../fonts/Axis.otf');
+    font-family: 'Monk';
+    src: url('../fonts/Monk.otf');
 }

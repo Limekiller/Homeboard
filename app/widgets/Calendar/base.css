@@ -5,7 +5,7 @@
     transform:translateY(-50%);
 }
 
-h1 {
+#calendar h1 {
     font-size:15px;
 }
 
@@ -41,10 +41,12 @@ h1 {
     height:100%;
     display:flex;
     flex-wrap:wrap;
+    opacity:0;
 }
 
 #cal_results_day {
-    height:90%;
+    height:105%;
+    opacity:0;
 }
 
 .day_header {
@@ -59,14 +61,29 @@ h1 {
 .cal_day {
     background-color:#757575;
     height:18%;
+    overflow:auto;
+    line-height:12px;
 }
 
-#cal_results_week .cal_day, #cal_results_day .cal_day {
+#cal_results_week .cal_day{
     height:90%;
-    /*width:12.5%;*/
+}
+
+#cal_results_day .cal_day  {
+    height:100%;
+}
+
+#cal_results_day .cal_day h6  {
+    font-size:50px;
+    text-align:center;
+}
+
+#cal_results_day .cal_day p  {
+    font-size:30px;
 }
 
 .cal_day h6 {
+    font-size:15px;
     font-weight:bold;
     margin:1px;
     text-align: left;
@@ -83,7 +100,6 @@ h1 {
     text-align:left;
     margin: 0;
     margin-left:10px;
-    display:table;
 }
 
 #cal_results_week .cal_day p {
@@ -91,14 +107,14 @@ h1 {
 }
 
 #cal_header{
-    margin-bottom:30px;
-    font-size:40px;
+    font-size:20px;
     font-weight:900;
 }
 .used_cal_list{
     display:flex;
-    font-size:10px;
+    font-size:9px;
     flex-wrap:wrap;
+    margin-top:2px;
 }
 
 .used_cal_list p {

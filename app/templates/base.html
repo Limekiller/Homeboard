@@ -3,6 +3,7 @@
         <title>Homeboard</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
@@ -10,17 +11,19 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/ElementQueries.js') }}"></script>
         <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
     </head>
-    <body id="base-body">
+    <body id="base-body" class='color1'>
         <header>
             <div id='header1' class='header'>
                 <h2 class='acc-logout'>Logout</h2>
                 <a class='acc-name' href="/logout"><img alt="{{ user_id }}" src="{{ picture }}" /></a>
-                <h2 id='acc-edit'>| Edit </h2>
+                <h2 id='acc-edit'>|    Edit </h2>
             </div>
             <div id='header2' class='header'>
                 <div id='widget-store'>
                     {% for widget in widgets %}
-                    <div class="ws-widget">{{ widget }}</div>
+                    <div class="ws-widget">
+                        <img name="{{ widget }}" src="/widget/{{ widget }}/widg_icon.svg" />
+                    </div>
                     {% endfor %}
                 </div>
                 <div id='edit-bar'>
@@ -35,5 +38,38 @@
             </div>
         </header>
         <div id="widget-area"></div>
+        <div id="styles-area">
+            <div class='style' id='style1'>
+                <div class='style-descriptor' style='background-color:#202020'></div>
+                <div class='style-descriptor' style='background-color:#4a4a4a'></div>
+                <div class='style-descriptor' style='background-color:#757575'></div>
+                <div class='style-descriptor' style='background-color:white'></div>
+            </div>
+            <div class='style' id='style2'>
+                <div class='style-descriptor' style='background-color:#090600'></div>
+                <div class='style-descriptor' style='background-color:#30241a'></div>
+                <div class='style-descriptor' style='background-color:rgb(122, 85, 68)'></div>
+                <div class='style-descriptor' style='background-color:rgb(255, 235, 193)'></div>
+            </div>
+            <div class='style' id='style3'>
+                <div class='style-descriptor' style='background-color:#124142'></div>
+                <div class='style-descriptor' style='background-color:#0F8788'></div>
+                <div class='style-descriptor' style='background-color:#4CB8A3'></div>
+                <div class='style-descriptor' style='background-color:#d9f8fd'></div>
+            </div>
+            <div class='style' id='style4'>
+                <div class='style-descriptor' style='background-color:#25121F'></div>
+                <div class='style-descriptor' style='background-color:#431D2F'></div>
+                <div class='style-descriptor' style='background-color:#AC3F39'></div>
+                <div class='style-descriptor' style='background-color:#fbbd92'></div>
+            </div>
+            <div class='style' id='style5'>
+                <div class='style-descriptor' style='background-color:#2b0c61'></div>
+                <div class='style-descriptor' style='background-color:#944BBB'></div>
+                <div class='style-descriptor' style='background-color:#bb90d2'></div>
+                <div class='style-descriptor' style='background-color:#fdd8f7'></div>
+            </div>
+            <div id='styles_close'>X</div>
+        </div>
     </body>
 </html>

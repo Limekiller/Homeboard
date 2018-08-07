@@ -1,0 +1,19 @@
+#weather {
+    font-weight:bold;
+    text-align:center;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#weather h1, h4 {
+    margin:0px;
+}
+
+#weather h6 {
+    margin-top:15px;
+}
+
+#weather img {
+    filter:invert(1);
+}

@@ -2,11 +2,12 @@
     <head>
         <title>Homeboard</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
     </head>
     <body class='home-body'>
         <div class="home-text">
-            <h1 style='font-family:Axis;'>Homeboard</h1>
-            <p style="font-weight:bolder;margin-bottom:30px;">Homeboard is an open-source, customizable, Google-integrated dashboard for you home.</p><br>
+            <h1 style='font-family:Monk;letter-spacing:5px;'>homeboard</h1>
+            <p style="margin-bottom:30px;font-family:Kanit;">Homeboard is an open-source, customizable, Google-integrated dashboard for your home.</p><br>
             <a class="g-signin" href="{{ url_for('google.login') }}">Sign In</a>
         </div>
     </body>
