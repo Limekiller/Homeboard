@@ -1,0 +1,81 @@
+* {
+    font-family:Kanit; 
+        }
+
+#home-body {
+    height:95%;
+    overflow:hidden;
+    background-color:#202020;
+}
+#home-text {
+    text-align:center;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+}
+.sign-in {
+    padding:50px;
+    transition:background-color 0.4s ease;
+}
+.sign-in h1 {
+    text-align:center;
+    text-decoration:none;
+    color:white;
+}
+.sign-in:hover {
+    background-color:#b4b4b4;
+}
+#primary-grid {
+    display:flex;
+    min-width:900px;
+    width:47vw;
+    height:0px;
+    flex-wrap:wrap;
+}
+#secondary-grid {
+    display:flex;
+    flex-wrap:wrap;
+    min-width:2304px;
+    width:120%;
+    margin-left:20vw;
+    position:absolute;
+    left:-440px;
+    margin-top:25vh;
+    top:-370px;
+}
+.grid-box {
+    min-width:250px;
+    width:13vw;
+    min-height:250px;
+    height:13vw;
+    margin:25px;
+    background-color:rgb(74,74,74);
+}
+.grid-box p {
+    padding:20px;
+    margin: 0;
+    color:#b4b4b4;
+    line-height:33px;
+}
+.dec {
+    background-color:#2d2d2d;
+}
+.edge {
+    flex-grow: 2;
+    width:50%;
+}
+.logo {
+    background-color:rgba(0,0,0,0);
+}
+.logo img {
+    top:100%;
+    margin-top:-50px;
+    position:relative;
+    filter:invert(1);
+}
+
+@font-face {
+   font-family: Axis;
+   src: url('../fonts/Axis.otf');
+}

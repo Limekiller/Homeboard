@@ -6,10 +6,12 @@ jQuery(document).ready(function () {
         success: function(data) {
             if (data != "null") {
                 $("body").html(data);
+                window.setTimeout(function(){ $("body").css("opacity", 1); }, 1000);
+            } else {
+                $("body").css("opacity", 1);
             }
         }
     });
-    $("body").css("opacity", 1);
     window.setTimeout(function(){enablePage(true);},1000);
 });
 
@@ -21,11 +23,15 @@ function enablePage(initial) {
     $(".widget").each(function(i, obj) {
         initUI($(this));
         if (initial) {
+            $(this).css("opacity", "0");
             old_widg_id = $(this).children(".widget-i").attr("id");
             $(this).children(".widget-i").attr("id", "widg_"+i);
             $("[name='"+old_widg_id+"']").attr('name', 'widg_'+i);
+            $('#widg_'+i).load("https://homeboard.bryceyoder.com/widget/"+$(this).attr('name'), function () {
+                init('widg_'+i);
+            });
+            window.setTimeout(function(){$("#widg_"+i).parent().css("opacity", 1);console.log('wow');}, 250+(i*200));
         }
-        init('widg_'+i);
         widg_id++;
         $(this).draggable('disable');
         $(this).resizable('disable');

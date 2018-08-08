@@ -1,14 +1,37 @@
 <html>
     <head>
         <title>Homeboard</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
         <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
     </head>
-    <body class='home-body'>
-        <div class="home-text">
-            <h1 style='font-family:Monk;letter-spacing:5px;'>homeboard</h1>
-            <p style="margin-bottom:30px;font-family:Kanit;">Homeboard is an open-source, customizable, Google-integrated dashboard for your home.</p><br>
-            <a class="g-signin" href="{{ url_for('google.login') }}">Sign In</a>
+    <body id='home-body'>
+        <div class="dec-box"></div>
+        <div id="secondary-grid">
+            <div class="grid-box dec" style="min-width:550px;width:29vw;"></div>
+            <div class="grid-box dec"></div>
+            <div class="grid-box dec"></div>
+            <div class="grid-box dec" style="min-width:550px;width:29vw;"></div>
+            <div class="grid-box dec"></div>
+            <div class="grid-box dec"></div>
+            <div id="primary-grid">
+                <div class="grid-box"></div>
+                <div class="grid-box logo edge">
+                    <img src="{{ url_for('static', filename='images/homeboard.svg') }}" />
+                </div>
+                <a href="{{ url_for('google.login') }}">
+                    <div class="grid-box sign-in"><h1>Sign In</h1></div>
+                </a>
+                <div class="grid-box edge"><p>Homeboard is an open-source, Google integrated dashboard for your home. View your calendar and upcoming events, stay up-to-date on the news, keep notes and reminds where you'll see them, and more. Create the perfect information hub with Homeboard.</p></div>
+            </div>
+            <div class="grid-box dec"></div>
+            <div class="grid-box dec"style="min-width:550px;width:29vw;height:100vh;"></div>
         </div>
+        <!--<div id="home-text">
+            <h1 style='font-family:Axis;letter-spacing:5px;'>homeboard</h1>
+            <p style="margin-bottom:30px;">Homeboard is an open-source, customizable, Google-integrated dashboard for your home.</p><br>
+            <a id="g-signin" href="{{ url_for('google.login') }}">Sign In</a>
+        </div>-->
     </body>
 </html>
