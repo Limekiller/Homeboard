@@ -55,5 +55,4 @@ function getData(city) {
                     "<h6>"+data.name+"</h6>");
     });
     resize($("#weather").parent());
-
 }

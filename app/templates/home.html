@@ -16,12 +16,18 @@
             <div class="grid-box dec"></div>
             <div class="grid-box dec"></div>
             <div id="primary-grid">
-                <div class="grid-box"></div>
+                <a href="http://github.com/Limekiller/Homeboard">
+                    <div class="grid-box sign-in" style="padding:0px;">
+                        <img alt="GitHub" id="github" src="{{ url_for('static', filename='images/github.svg') }}" />
+                    </div>
+                </a>
                 <div class="grid-box logo edge">
                     <img src="{{ url_for('static', filename='images/homeboard.svg') }}" />
                 </div>
                 <a href="{{ url_for('google.login') }}">
-                    <div class="grid-box sign-in"><h1>Sign In</h1></div>
+                    <div class="grid-box sign-in">
+                        <img alt="Sign In" src="{{ url_for('static', filename='images/log_reg.svg') }}" />
+                    </div>
                 </a>
                 <div class="grid-box edge"><p>Homeboard is an open-source, Google integrated dashboard for your home. View your calendar and upcoming events, stay up-to-date on the news, keep notes and reminds where you'll see them, and more. Create the perfect information hub with Homeboard.</p></div>
             </div>

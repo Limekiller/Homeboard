@@ -1,0 +1,15 @@
+#news {
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+#news #results h3 {
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:normal;
+}
+#news #results h1 {
+    margin-top:0px;
+    margin-bottom:15px;
+    line-height:30px;
+}

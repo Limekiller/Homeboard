@@ -43,7 +43,7 @@ function enablePage(initial) {
     // Show Logout on profile image hover
     $(".acc-name").hover(function(){
         $(this).addClass('acc-name-hover');
-        $('#acc-edit').css('margin-left', '50px');
+        $('#acc-edit').css('margin-left', '75px');
         $('.acc-logout').addClass('acc-logout-hover');
     }, function(){
         $(this).removeClass('acc-name-hover');
@@ -210,24 +210,10 @@ function resize(element) {
     var new_width = $(element).width();
     var new_height = $(element).height();
 
-    if (new_width / 250 > new_height / 250) {
-        while (new_width / 250 * $(element).children('.w_base').height() > new_height - 25) {
-            new_width = new_width - 25;
-        }
-        var scale_factor = new_width / 250;
+    var old_width = $(element).children('.w_base').outerWidth();
+    var old_height = $(element).children('.w_base').outerHeight();//github.com/Limekiller/Homeboardt();
 
-    } else if (new_height / 250 > new_width / 250) {
-        while (new_height / 250 * $(element).children('.w_base').width() > new_width - 25) {
-            new_height = new_height - 25;
-        }
-        var scale_factor = new_height / 250;
-
-    } else {
-        while (new_height / 250 * $(element).children('.w_base').width() > new_width - 50) {
-            new_height = new_height - 25;
-        }
-        var scale_factor = new_height / 250;
-    }
+    var scale_factor = Math.min((new_width-75)/old_width, (new_height-75)/old_height);
 
     $(element).children().css("transform", "translateY(-50%) scale("+scale_factor+")");
 }
