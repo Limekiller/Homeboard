@@ -2,7 +2,7 @@ function init(widg_id){
 
     $('#weather_search').keyup(function(e){
         if (e.keyCode == 13) {
-            window.setInterval(function() { getData($("#weather h6").html()); }, 3600000);
+            window.setInterval(function() { getData($("#weather h6").html()); }, 30000);
             getData($("#weather_search").val());
         }
     });

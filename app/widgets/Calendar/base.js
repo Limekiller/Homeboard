@@ -60,7 +60,7 @@ function init(widg_id){
         } else {
             view_mode = 2;
             $("#cal_results_month").css('display', '');
-            $("#cal_results_month").css('display', '1');
+            $("#cal_results_month").css('opacity', '1');
             $("#cal_results_week").css('display', 'none');
             $("#cal_results_day").css('display', 'none');
             $("#cal_header").css('display', '');
@@ -76,7 +76,7 @@ function get_events(cal_array){
     var days_in_month = new Date(date_n.getFullYear(), month_of_year, 0).getDate();
     var date_p = new Date(date_n); var date_f = new Date(date_n);
     var cal_list = [];
-    var color_array = ['black', '#834141', '#ba9550', '#dede6a', '#4e754e', 'blue', 'purple', 'pink'];
+    var color_array = ['black', '#834141', '#ba9550', '#dede6a', '#4e754e', '#7a7aca', '#a567a5', 'pink'];
 
     date_p.setDate(date_p.getDate() - date_p.getDate() + 1);
     date_f.setDate(date_f.getDate()
@@ -193,7 +193,7 @@ function eval_date_list(date_dict, cal_list){
     month_year = date.toLocaleString("en-us" ,{ month: "long", year: "numeric"});
     week_beginning = date.getDate() - date.getDay();
     week_end = week_beginning + 6;
-    color_array = ['black', '#834141', '#ba9550', '#dede6a', '#4e754e', 'blue', 'purple', 'pink'];
+    color_array = ['black', '#834141', '#ba9550', '#dede6a', '#4e754e', '#7a7aca', '#a567a5', 'pink'];
 
     $("#calendar").append("<div id='cal_header'>"+month_year+"</div>");
     $("#calendar").append("<div id='cal_results_month'></div>");

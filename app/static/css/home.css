@@ -57,7 +57,7 @@
 }
 #github {
     position:relative;
-    width:80%;
+    width:50%;
     filter:invert(0.6);
     top:50%;
     transform:translateY(-50%);

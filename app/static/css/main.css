@@ -96,7 +96,14 @@ a {
 .acc-name-hover {
     opacity:0;
 }
-
+#logo {
+    float:right;
+    height:20px;
+    position:relative;
+    margin-top:10px;
+    margin-right:75px;
+    filter:invert(1);
+}
 #edit-bar {
    position:absolute;
    bottom:0;
