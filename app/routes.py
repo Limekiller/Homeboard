@@ -78,6 +78,7 @@ def load_data():
     assert resp.ok, resp.text
 
     user_id = resp.json()["id"]
+    print(user_id);
     if os.path.exists("./app/user_data/"+user_id):
         data = open("./app/user_data/"+user_id, 'r').read()
         return data

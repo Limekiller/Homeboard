@@ -126,10 +126,10 @@ function get_events(cal_array){
                         if (obj.summary.length > 10) { obj.summary = obj.summary.slice(0, 7)+'...'; }
 
                         var AM_PM = event_time.slice(-2);
-                        if (event_time.charAt(3) != '0' || (event_time.charAt(4) != '0' && event_time.charAt(4) != ':')) {
-                            var prefix = event_time.slice(1, -6);
-                        } else {
+                        if ((event_time.charAt(2) == '0' && event_time.charAt(3) == '0') || (event_time.charAt(3) == '0' && event_time.charAt(4) == '0')) {
                             var prefix = event_time.substr(0, event_time.indexOf(':'));
+                        } else {
+                            var prefix = event_time.slice(0, -6);
                         }
 
                         if (event_time != "All Day") {
