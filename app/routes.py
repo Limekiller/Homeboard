@@ -94,7 +94,7 @@ def save_data():
 
     user_id = resp.json()["id"]
     f = open("./app/user_data/"+user_id, 'w')
-    f.write(data);
+    f.write(data.encode('ascii','ignore').decode('ascii'));
     return "saved"
 
 
