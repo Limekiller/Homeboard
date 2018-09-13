@@ -175,7 +175,7 @@ function enablePage(initial) {
             $(this).attr('name', 'widg_'+temp_widg_id);
 
             // Add to page, load code, and fire init function that it should contain
-            $('#widget-area').append("<div class='widget color4' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color2'></div></div>");
+            $('#widget-area').append("<div class='widget color2' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color2'></div></div>");
             $('#widg_'+widg_id).load("https://homeboard.bryceyoder.com/widget/"+widget_title, function () {
                 init('widg_'+temp_widg_id);
             });
