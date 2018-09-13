@@ -72,7 +72,8 @@ function init(widg_id){
 function get_events(cal_array){
     var date_n = new Date();
     var day_of_month = date_n.getDate();
-    var month_of_year = date_n.getMonth();
+    var month_of_year = date_n.getMonth() + 1;
+    console.log(date_n.getFullYear(),month_of_year);
     var days_in_month = new Date(date_n.getFullYear(), month_of_year, 0).getDate();
     var date_p = new Date(date_n); var date_f = new Date(date_n);
     var cal_list = [];
@@ -123,6 +124,7 @@ function get_events(cal_array){
 
                         event_date = event_date.toDateString();
                         if (obj.summary == undefined) { obj.summary = 'Busy'; }
+                        var full_summary = obj.summary;
                         if (obj.summary.length > 10) { obj.summary = obj.summary.slice(0, 7)+'...'; }
 
                         var AM_PM = event_time.slice(-2);
@@ -139,24 +141,21 @@ function get_events(cal_array){
                         }
 
                         if (date_dict[event_date].length == 0) {
-                            date_dict[event_date].push([event_time_display, obj.summary, color, event_time]);
+                            date_dict[event_date].push([event_time_display, obj.summary, color, event_time, full_summary]);
                         } else {
 
                             for (var i = 0; i <= date_dict[event_date].length; i++) {
                                 if (i == date_dict[event_date].length) {
-                                    console.log("length: "+date_dict[event_date].length+" i: "+i);
-                                    date_dict[event_date].push([event_time_display, obj.summary, color, event_time]);
+                                    date_dict[event_date].push([event_time_display, obj.summary, color, event_time, full_summary]);
                                     break;
                                 }
 
                                 if (new Date('1/1/1999 '+date_dict[event_date][i][3]) > new Date('1/1/1999 '+event_time)) {
-                                    date_dict[event_date].splice(i, 0, [event_time_display, obj.summary, color, event_time]);
+                                    date_dict[event_date].splice(i, 0, [event_time_display, obj.summary, color, event_time, full_summary]);
                                     break;
                                 }
                             }
                         }
-                        console.log(date_dict[event_date]);
-                        //date_dict[event_date].push([event_time, obj.summary, color]);
                     }
                 });
             });
@@ -229,7 +228,7 @@ function eval_date_list(date_dict, cal_list){
             $("#cal_results_month").append("<div class='cal_day"+i+" cal_day color3'><h6>"+i+"</h6>");
         }
 
-        date_dict[dates[i]].forEach(function(e){$(".cal_day"+i).append("<div style='display:flex;justify-content:space-between;'><p>"+e[0]+" "+e[1]+"</p><div style='background-color:"+e[2]+";width:5px;'></div></div>");});
+        date_dict[dates[i]].forEach(function(e){$(".cal_day"+i).append("<div class='item' style='display:flex;justify-content:space-between;'><p>"+e[0]+" "+e[1]+"</p><div style='background-color:"+e[2]+";width:5px;'></div><div style='background-color:"+e[2]+";' class='item-hover'>"+e[0]+"<br />"+e[4]+"</div></div>");});
     }
 
     // Show selected calendars
