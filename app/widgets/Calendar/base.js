@@ -7,6 +7,12 @@ function init(widg_id){
         }
     });
 
+    $(document.body).on('mouseover', '.item', function(e){
+        $(this).parent().position();
+        $('.track').css({'top':$(this).position().top, 'left': $(this).position().left+100});
+        console.log(e.clientY);
+    });
+
     // Get user's calendar list
     $.getJSON($SCRIPT_ROOT + '/calendar', {
         c: 'calendarList?',
@@ -228,7 +234,7 @@ function eval_date_list(date_dict, cal_list){
             $("#cal_results_month").append("<div class='cal_day"+i+" cal_day color3'><h6>"+i+"</h6>");
         }
 
-        date_dict[dates[i]].forEach(function(e){$(".cal_day"+i).append("<div class='item' style='display:flex;justify-content:space-between;'><p>"+e[0]+" "+e[1]+"</p><div style='background-color:"+e[2]+";width:5px;'></div><div style='background-color:"+e[2]+";' class='item-hover'>"+e[0]+"<br />"+e[4]+"</div></div>");});
+        date_dict[dates[i]].forEach(function(e){$(".cal_day"+i).append("<div class='item' style='display:flex;justify-content:space-between;'><p>"+e[0]+" "+e[1]+"</p><div style='background-color:"+e[2]+";width:5px;'></div><div style='background-color:"+e[2]+";' class='item-hover track'>"+e[0]+"<br />"+e[4]+"</div></div>");});
     }
 
     // Show selected calendars
@@ -236,6 +242,7 @@ function eval_date_list(date_dict, cal_list){
     for (var i = 0; i < cal_list.length; i++){
         $(".used_cal_list").append("<p style='margin-right:15px;border-bottom:5px solid "+color_array[i]+";'>"+cal_list[i]+'</p>');
     }
+
 
     // Fade in calendar on refresh
     window.setTimeout(function() {resize($("#calendar").parent());}, 500);
@@ -252,4 +259,6 @@ function eval_date_list(date_dict, cal_list){
         window.setTimeout(function() {$("#cal_results_week").css("display", "none");}, 400);
         window.setTimeout(function() {$("#cal_results_day").css("display", "none");}, 400);
     }
+
 }
+
