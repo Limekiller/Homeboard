@@ -150,7 +150,11 @@ function enablePage(initial) {
     function colorChange(swatchid) {
         $("#"+swatchid).children().each(function(index) {
             if (index == 3) {
-                $(".color4").css("color", $(this).css("background-color")+" !important");
+                //$(".color4").css("color", $(this).css("background-color")+" !important");
+                $tempElem = $(this);
+                $('.color4').each(function() {
+                    $(this).attr('style', $(this).attr('style')+';'+'color: '+$tempElem.css("background-color")+' !important');
+                });
             } else {
                 $(".color"+(index+1)).css("background-color", $(this).css("background-color"));
             }
@@ -175,7 +179,7 @@ function enablePage(initial) {
             $(this).attr('name', 'widg_'+temp_widg_id);
 
             // Add to page, load code, and fire init function that it should contain
-            $('#widget-area').append("<div class='widget color2' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color2'></div></div>");
+            $('#widget-area').append("<div class='widget color2' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color4'</div></div>");
             $('#widg_'+widg_id).load("https://homeboard.bryceyoder.com/widget/"+widget_title, function () {
                 init('widg_'+temp_widg_id);
             });

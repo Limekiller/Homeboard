@@ -1,5 +1,7 @@
 function init(widg_id){
 
+    $("#note").addClass("color4");
+
     // Fit content to size
     var element = document.getElementById('note');
     new ResizeSensor(element.parentElement, function() {

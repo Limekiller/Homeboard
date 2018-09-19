@@ -6,8 +6,12 @@
     transform:translateY(-50%);
 }
 
+#note p {
+    color:inherit !important;
+}
+
 #note p span{
-    color: white !important;
+    color: inherit !important;
     font-size:10px !important;
     font-family:Kanit !important;
 }
