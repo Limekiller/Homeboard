@@ -130,8 +130,7 @@
     position:absolute;
     padding:20px;
     transition:all 0.4s ease;
-    -webkit-text-stroke:0.5px black;
-    text-stroke:0.5px black;
+    text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .track {
     top:auto;

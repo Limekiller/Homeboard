@@ -69,7 +69,7 @@ function enablePage(initial) {
 
         $('#header2').css('margin-top', '-92vh');
         $('#header1').css('margin-top', '-90px');
-        $('.widget-i').css('border', '1px solid');
+        $('.widget-i').addClass('widget-i-editable');
     });
 
     // Save changes
@@ -78,7 +78,7 @@ function enablePage(initial) {
         $('#header1').css('margin-top', '');
         $('.widget').draggable('disable');
         $('.widget').resizable('disable');
-        $('.widget-i').css('border', 'none');
+        $('.widget-i').removeClass('widget-i-editable');
         var pagedata = $("body").html();
         $.post(
                 '/save',
@@ -100,6 +100,7 @@ function enablePage(initial) {
         $('.widget').draggable('disable');
         $("body").html(savedPageContent);
         enablePage(false);
+        $('.widget-i').removeClass('widget-i-editable');
         $("body").css("transition", "opacity 0.1s ease, background-color 0.4s ease");
         window.setTimeout(function(){
             $("body").css("opacity", 1);
@@ -123,7 +124,7 @@ function enablePage(initial) {
         $('#styles-area').css('bottom', '0px');
         $('.widget').draggable('disable');
         $('.widget').resizable('disable');
-        $('.widget-i').css('border', 'none');
+        $('.widget-i').removeClass('widget-i-editable');
     });
 
 
@@ -132,7 +133,7 @@ function enablePage(initial) {
         $('#header2').css('margin-top', '-92vh');
         $('.widget').draggable('enable');
         $('.widget').resizable('enable');
-        $('.widget-i').css('border', '1px solid');
+        $('.widget-i').addClass('widget-i-editable');
         $('#styles-area').css('bottom', '');
     });
 
@@ -153,7 +154,9 @@ function enablePage(initial) {
                 //$(".color4").css("color", $(this).css("background-color")+" !important");
                 $tempElem = $(this);
                 $('.color4').each(function() {
-                    $(this).attr('style', $(this).attr('style')+';'+'color: '+$tempElem.css("background-color")+' !important');
+                    // $(this).removeAttr('style');
+                    // $(this).attr('style', lastStyle+';'+'color: '+$tempElem.css("background-color")+' !important');
+                    $(this).css('color',$tempElem.css("background-color"));
                 });
             } else {
                 $(".color"+(index+1)).css("background-color", $(this).css("background-color"));

@@ -155,7 +155,10 @@ a {
     top:50%;
     transform: translate(-50%, -50%);
     transform-origin: center center;
-    border: 1px solid;
+    border: none;
+}
+.widget-i-editable {
+    border:1px solid;
 }
 .w_base {
     width:-moz-fit-content;
