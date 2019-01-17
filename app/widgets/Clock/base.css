@@ -26,5 +26,8 @@
     font-size:15px;
     justify-content:space-evenly;
     margin: 0 auto;
-    color:#757575;
+    color:white;
+}
+#week span {
+    opacity:0.5;
 }

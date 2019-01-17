@@ -39,4 +39,5 @@ function updateClock()
     var currentTimeString = currentHours + "<br>" + currentMinutes;
     $("#clock2_time").html(currentTimeString);
     $("#week").children().eq(currentDay).css('color', 'rgba(255,255,255,1)');
+    $("#week").children().eq(currentDay).css('opacity', '1');
 };

@@ -200,6 +200,21 @@ a {
     width:50px;
     height:50px;
 }
+.style-picker {
+    background-image:url('/static/images/question.png');
+    background-size:cover;
+    background-position-x:-8px;
+    background-blend-mode: difference;
+    transition:all 0.4s ease;
+}
+#paletteHolder {
+    position:absolute;
+    background-color:black;
+    padding:20px;
+    margin-top: -280px;
+    opacity:0;
+    transition: opacity 0.4s ease;
+}
 
 @font-face {
     font-family: 'Monk';

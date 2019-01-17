@@ -18,6 +18,45 @@ jQuery(document).ready(function () {
 function enablePage(initial) {
     var savedPageContent;
     var bgColor;
+    var lastColorPicked;
+
+    //Enable color picker
+    $("#style8").hover(function() {
+        if (lastColorPicked != null) {
+            clearTimeout(paletteWait);
+            $("#paletteHolder").css('opacity', 1);
+            $("#"+lastColorPicked).css('background-blend-mode', 'darken');
+        }
+    }, function() {
+        paletteWait = window.setTimeout(function(){
+            $("#paletteHolder").css('opacity',0);
+            $("#"+lastColorPicked).css('background-blend-mode', 'difference');
+        }, 500);
+    });
+
+    var canvasEl = document.getElementById('colorPicker');
+    var canvasContext = canvasEl.getContext('2d');
+
+    var image = new Image(200, 200);
+    image.onload = () => canvasContext.drawImage(image, 0, 0, image.width, image.height);
+    image.src = "https://homeboard.bryceyoder.com/static/images/out.png";
+
+    canvasEl.onclick = function(mouseEvent)
+    {
+        var imgData = canvasContext.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
+        var rgba = imgData.data;
+
+        $("#"+lastColorPicked).css('background-color',"rgba(" + rgba[0] + ", " + rgba[1] + ", " + rgba[2] + ", " + rgba[3] + ")");
+    }
+
+    //Get last picked square and show color picker
+    $(".style-picker").on("click",function() {
+        $(this).css('background-blend-mode', 'darken');
+        $("#"+lastColorPicked).css('background-blend-mode', 'difference');
+        $("#paletteHolder").css('opacity', '1');
+        lastColorPicked = $(this).attr('id');
+    });
+
 
     // Enable all widgets if this function is being called due to the discard button
     $(".widget").each(function(i, obj) {
@@ -135,11 +174,17 @@ function enablePage(initial) {
         $('.widget').resizable('enable');
         $('.widget-i').addClass('widget-i-editable');
         $('#styles-area').css('bottom', '');
+        lastColorPicked = null;
     });
+
+
 
 
     // Begin calling color-change function
     $(".style").on("click", function() {
+        if ($(this).attr('id') != 'style8') {
+            lastColorPicked = null;
+        }
         var thisid = $(this).attr('id');
         if (window.colorChangeInterval) {
             clearInterval(window.colorChangeInterval);
@@ -182,7 +227,7 @@ function enablePage(initial) {
             $(this).attr('name', 'widg_'+temp_widg_id);
 
             // Add to page, load code, and fire init function that it should contain
-            $('#widget-area').append("<div class='widget color2' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i color4'</div></div>");
+            $('#widget-area').append("<div class='widget color2' name='"+widget_title+"'><div id='widg_"+widg_id+"' class='widget-i widget-i-editable color4'</div></div>");
             $('#widg_'+widg_id).load("https://homeboard.bryceyoder.com/widget/"+widget_title, function () {
                 init('widg_'+temp_widg_id);
             });
